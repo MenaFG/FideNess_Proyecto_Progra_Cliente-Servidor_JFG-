@@ -1,0 +1,29 @@
+package avance1fidness_jimenagonzalezq_prograclient.serv_sem5_iic2026;
+
+public class Ejercicio {
+    private String nombrej; //nombre del ejercicio
+    private String parte; //parte del cuerpo: brazos, piernas, abdomen, etc.
+    private String descripcion; //Describe que parte ejercita y beneficios
+    private String video; //Demostracion de como realizar el ejercicio correctamente
+    
+    
+    //Constructores
+    public Ejercicio(String nombrej, String parte, String descripcion, String video) {
+        this.nombrej = nombrej;
+        this.parte = parte;
+        this.descripcion = descripcion;
+        this.video = video;
+    } 
+    
+    //Imprime el sistema
+    public void mostrarEjercicio() {
+        System.out.println("Ejercicio: " + nombrej + "(" + parte +")");
+        System.out.println("Descripcio: " + descripcion);
+        System.out.println("Video: " + video);
+    }
+    
+    //Getters
+    public String getNombrej(){ return nombrej; }
+    public String getparte() { return parte;}
+    
+}
