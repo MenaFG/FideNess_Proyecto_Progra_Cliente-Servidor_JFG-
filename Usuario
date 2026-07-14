@@ -1,0 +1,28 @@
+package avance1fidness_jimenagonzalezq_prograclient.serv_sem5_iic2026;
+
+public class Usuario {
+    private String nombre; //nombre de usuario
+    private String correo; //correo electronico asociado a la app
+    private String contrasena; //contraseña para acceder a la aplicacion
+    private String tipo; // se clasifica en admin o cliente mas adelante
+    
+    
+    //Constructores
+    public Usuario(String nombre, String correo, String contrasena, String tipo) {
+        this.nombre = nombre;
+        this.correo = correo;
+        this.contrasena = contrasena;
+        this.tipo = tipo;
+    }
+    
+    //Derivacion para acceder o no al sistema segun los parametros ingresados 
+    public boolean login(String nombre, String contrasena){
+        if (this.nombre.equals(nombre) && this.contrasena.equals(contrasena)){
+            System.out.println("Bienvenido " + nombre + "(" + tipo + ")");
+            return true;
+        } else {
+            System.out.println("Credenciales Incorrectas, verifique sus parametros.");
+            return false;
+        }
+    }
+}
