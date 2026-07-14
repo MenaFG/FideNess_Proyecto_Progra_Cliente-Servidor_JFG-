@@ -1,0 +1,14 @@
+package avance1fidness_jimenagonzalezq_prograclient.serv_sem5_iic2026;
+
+import java.util.ArrayList;
+
+public class Administrador extends Usuario {
+    public Administrador(String nombre, String correo, String contrasena) {
+        super(nombre, correo, contrasena, "admin");
+    }
+    
+    public void crearEjercicio(ArrayList<Ejercicio> lista, Ejercicio e) {
+        lista.add(e);
+        System.out.print("Ejercicio creado: " + e.getNombrej());
+    }
+}
