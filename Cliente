@@ -1,0 +1,17 @@
+package avance1fidness_jimenagonzalezq_prograclient.serv_sem5_iic2026;
+
+import java.util.ArrayList;
+
+public class Cliente extends Usuario {
+
+    public Cliente(String nombre, String correo, String contrasena) {
+        super(nombre, correo, contrasena, "cliente");
+    }
+    
+    public void consultarEjercicio(ArrayList<Ejercicio>lista) {
+        for(Ejercicio e : lista) {
+            e.mostrarEjercicio();
+        }
+    }
+    
+}
