@@ -1,0 +1,71 @@
+package avance1fidness_jimenagonzalezq_prograclient.serv_sem5_iic2026;
+
+import javax.swing.*;
+import java.awt.event.*;
+
+public class Interfaz extends JFrame{
+    private JTextField userText;
+    private JPasswordField passText;
+    private JButton loginButton;
+    
+    public Interfaz(Usuario cliente) {
+        setTitle("Fidness - Login");
+        setSize(300, 200);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        JPanel panel = new JPanel();
+        add(panel);
+
+        JLabel userLabel = new JLabel("Usuario:");
+        panel.add(userLabel);
+        userText = new JTextField(20);
+        panel.add(userText);
+
+        JLabel passLabel = new JLabel("Contraseña:");
+        panel.add(passLabel);
+        passText = new JPasswordField(20);
+        panel.add(passText);
+
+        loginButton = new JButton("Login!");
+        panel.add(loginButton);
+        
+        // Acción del botón
+        loginButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                String usuarioIngresado = userText.getText();
+                String contrasenaIngresada = new String(passText.getPassword());
+
+                if (cliente.login(usuarioIngresado, contrasenaIngresada)) {
+                    // Si login correcto, ejecutar lógica
+                    ejecutarFlujo(cliente);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Credenciales incorrectas");
+                }
+            }
+        });
+    }
+    
+    // Método que corre el resto del programa
+    private void ejecutarFlujo(Usuario cliente) {
+        // Admin crea ejercicios
+        Ejercicio sentadillas = new Ejercicio("Sentadilla", "Piernas", "Ejercicio básico de piernas", "https://www.youtube.com/shorts/vuMU7-BKIZA");
+        Ejercicio flexiones = new Ejercicio("Flexiones", "Brazos", "Ejercicio básico de brazos", "https://www.youtube.com/shorts/YXI_V2sIO_Y");
+
+        // Cliente consulta ejercicios
+        sentadillas.mostrarEjercicio();
+        flexiones.mostrarEjercicio();
+
+        // Cliente crea rutina
+        Rutina rutina1 = new Rutina("Rutina de fuerza");
+        rutina1.agregarEjercicio(flexiones);
+        rutina1.agregarEjercicio(sentadillas);
+
+        // Exportar rutina
+        try {
+            rutina1.exportarRutina();
+        } catch (Exception ex) {
+            System.out.println("Error: " + ex.getMessage());
+        }
+    }
+
+}
