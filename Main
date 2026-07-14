@@ -1,0 +1,15 @@
+package avance1fidness_jimenagonzalezq_prograclient.serv_sem5_iic2026;
+
+public class Main {
+    public static void main(String[] args) {
+        // Crear cliente con credenciales correctas
+        Usuario cliente = new Usuario("Jimena", "jgonzl6@gmail.com", "12345", "cliente");
+        Usuario admin = new Usuario("Richard", "adminR@fidness.com", "0123", "admin");
+        
+        // Lanzar interfaz con ese cliente
+        Interfaz ventana = new Interfaz(cliente);
+        ventana.setVisible(true);
+    }
+}
+         //Profe usted puede usar cualquiera, por el momento no usare creacion de usuarios para no hacer mas largo por el momento el proyecto
+        //sera pulido en la entrega final. Gracias
